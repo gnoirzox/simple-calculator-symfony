@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Simple Calculator{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        {% block body %}
+            {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+            {{ form_widget(form) }}
+            {{ form_end(form) }}
+
+            {% if result %}
+                <p> Result: {{ result }} </p>
+            {% endif %}
+        {% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
