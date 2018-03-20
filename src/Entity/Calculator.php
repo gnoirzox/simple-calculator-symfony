@@ -19,7 +19,7 @@ class Calculator {
 
     /*
      * @Assert\NotBlank()
-     * @Assert\Choice({"plus", "minus", "multiply", "divide "})
+     * @Assert\Choice({"plus", "minus", "multiply", "divide"})
      */
     private $expression;
 
@@ -52,21 +52,21 @@ class Calculator {
         $this->expression = $expression;
     }
 
-    public static function evaluate(Calculator $calculation) 
+    public function evaluate() 
     {
-        switch ($calculation->getExpression()) {
+        switch ($this->getExpression()) {
         case 'plus':
-            $result = $calculation->getFirstValue() + $calculation->getSecondValue();
+            $result = $this->getFirstValue() + $this->getSecondValue();
             break;
         case 'minus':
-            $result = $calculation->getFirstValue() - $calculation->getSecondValue();
+            $result = $this->getFirstValue() - $this->getSecondValue();
             break;
         case 'multiply':
-            $result = $calculation->getFirstValue() * $calculation->getSecondValue();
+            $result = $this->getFirstValue() * $this->getSecondValue();
             break;
         case 'divide':
-            if ($calculation->getSecondValue() != 0) {
-                $result = $calculation->getFirstValue() / $calculation->getSecondValue();
+            if ($this->getSecondValue() != 0) {
+                $result = $this->getFirstValue() / $this->getSecondValue();
             } else {
                 $result = null;
             }

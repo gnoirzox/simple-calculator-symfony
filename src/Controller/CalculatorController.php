@@ -14,16 +14,17 @@ class CalculatorController extends Controller {
      * @Route("/calculator")
      */
     public function calculate(Request $request) {
-		$calculator = new Calculator();
+        $calculator = new Calculator();
         $form = $this->createForm(CalculatorType::class, $calculator);
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
             $calculate = $form->getData();
+            $result = $calculat->evaluate();
 
-            $result = Calculator::evaluate($calculate);
+        } else if ($form->isSubmitted() && !$form->isValid()) {
+            // return error
         }
 
         return $this->render('Calculator/Calculator.html.twig',
